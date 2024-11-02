@@ -1,0 +1,21 @@
+version: '3.8'
+
+services:
+  webserver:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "80:80"
+    volumes:
+      - .:/var/www/html/ # Ensure this points to your Laravel application
+
+  db:
+    image: mysql:8.0
+    environment:
+      MYSQL_DATABASE: laravel
+      MYSQL_USER: docker-user
+      MYSQL_PASSWORD: Kashifmehmood@123
+      MYSQL_ROOT_PASSWORD: Kashif@408
+    ports:
+      - "3306:3306"
